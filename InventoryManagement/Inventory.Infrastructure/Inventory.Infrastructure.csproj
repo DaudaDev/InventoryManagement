@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blocks.MongoDb\Blocks.MongoDb.csproj" />
+      <ProjectReference Include="..\Blocks.Shared\Blocks.Shared.csproj" />
+      <ProjectReference Include="..\Inventory.Core\Inventory.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0-preview.4.22229.4" />
+    </ItemGroup>
+
+</Project>
