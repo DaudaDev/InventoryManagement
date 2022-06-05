@@ -4,31 +4,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Equipments", "Equipments", "{2AB4712F-AA77-4EF8-A0E5-8AF681D2E946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipments.Core", "Equipments.Core\Equipments.Core.csproj", "{48410B47-E21A-44E9-AC21-0BF680F3A668}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipments.Core", "Equipments\Equipments.Core\Equipments.Core.csproj", "{48410B47-E21A-44E9-AC21-0BF680F3A668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipments.Core.Unit.Tests", "Equipments.Core.Unit.Tests\Equipments.Core.Unit.Tests.csproj", "{04A49E38-9A57-4732-A950-783BA4860981}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipments.Core.Unit.Tests", "Equipments\Equipments.Core.Unit.Tests\Equipments.Core.Unit.Tests.csproj", "{04A49E38-9A57-4732-A950-783BA4860981}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RawMaterials", "RawMaterials", "{3F75588D-0478-4F95-A9BF-0EB3DEE53990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawMaterials.Core", "RawMaterials.Core\RawMaterials.Core.csproj", "{522D557E-C45D-4AA8-8476-35F26526AD65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawMaterials.Core", "RawMaterials\RawMaterials.Core\RawMaterials.Core.csproj", "{522D557E-C45D-4AA8-8476-35F26526AD65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedProjects", "SharedProjects", "{F8A5B382-2BAD-495E-8524-941CDD679A80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.Shared", "Blocks.Shared\Blocks.Shared.csproj", "{3A80D994-9725-4ACF-B596-0CFC1333D49C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.Shared", "SharedProjects\Blocks.Shared\Blocks.Shared.csproj", "{3A80D994-9725-4ACF-B596-0CFC1333D49C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{31D39FF3-EE8F-4628-B13E-515F08CCD59C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Core", "Inventory.Core\Inventory.Core.csproj", "{E9F5D9F7-39DA-4355-B079-8F32ECB95E7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Core", "Inventory\Inventory.Core\Inventory.Core.csproj", "{E9F5D9F7-39DA-4355-B079-8F32ECB95E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Infrastructure", "Inventory.Infrastructure\Inventory.Infrastructure.csproj", "{7809575D-BDC4-42C8-AC36-16612681D12B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Infrastructure", "Inventory\Inventory.Infrastructure\Inventory.Infrastructure.csproj", "{7809575D-BDC4-42C8-AC36-16612681D12B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Contracts", "Inventory.Contracts\Inventory.Contracts.csproj", "{78A75AC4-8934-4B2B-A17F-FE5B51090A92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Contracts", "Inventory\Inventory.Contracts\Inventory.Contracts.csproj", "{78A75AC4-8934-4B2B-A17F-FE5B51090A92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.MongoDb", "Blocks.MongoDb\Blocks.MongoDb.csproj", "{D2A4EAE8-2C68-428C-A2D2-9F339461E877}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.MongoDb", "SharedProjects\Blocks.MongoDb\Blocks.MongoDb.csproj", "{D2A4EAE8-2C68-428C-A2D2-9F339461E877}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.MongoDB.Tests", "Blocks.MongoDB.Tests\Blocks.MongoDB.Tests.csproj", "{29A237C9-2821-4A56-9B4C-1526F58B3B33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Application", "Inventory.Application\Inventory.Application.csproj", "{48AE060A-420B-426E-B4A8-D6E3925E0E44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Application", "Inventory\Inventory.Application\Inventory.Application.csproj", "{48AE060A-420B-426E-B4A8-D6E3925E0E44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,19 +12,17 @@ public class MongoDbFacadeTests : MongodbFixture
 {
     private const string TestCollection = "InventoryItems";
     private const string TestDatabase = "TestDatabase";
-
-    public MongoDbFacadeTests() : base(TestCollection, TestDatabase)
-    {
-    }
-
     private readonly TestDocument _testDocument1 = TestDocument.DummyData1();
     private readonly TestDocument _testDocument2 = TestDocument.DummyData2();
+    private readonly TestDocument _testDocument3 = TestDocument.DummyData3();
 
     private Result<IMongoCollection<TestDocument>> failureResult =
         Result.Failure<IMongoCollection<TestDocument>>("Failed");
-
+    public MongoDbFacadeTests() : base(TestCollection, TestDatabase)
+    {
+    }
+    
     #region GetAllEntities
-
     [Fact]
     public async Task GetAllEntities_GetCollection_Failes_Return_Error()
     {
@@ -160,7 +158,22 @@ public class MongoDbFacadeTests : MongodbFixture
 
         updatedDocument.FirstOrDefault().StringTest.Should().Be(stringTest);
     }
+    
+    [Fact]
+    public async Task SaveEntity_Document_Does_Not_Exist_Adds_New_Document()
+    {
+        var (sut, _) = Setup();
+        
+        var result = await sut
+            .SaveEntity(TestCollection, _testDocument3);
 
+        result.IsSuccess.Should().BeTrue();
+        
+        var updatedDocument = await MongoCollection
+            .FindAsync(entity => entity.Id.Equals(_testDocument3.Id));
+
+        updatedDocument.ToEnumerable().FirstOrDefault().Should().BeEquivalentTo(_testDocument3);
+    }
     #endregion
 
     private (IMongoDbFacade<TestDocument> sut,

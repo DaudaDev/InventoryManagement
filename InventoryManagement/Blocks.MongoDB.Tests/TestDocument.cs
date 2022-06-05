@@ -39,6 +39,7 @@ public record TestDocument : MongoDbBaseDocument
     {
         return new TestDocument
         {
+            Id = ObjectId.GenerateNewId().ToString(),
             StringTest = "Bar",
             IntTest = 77,
         };

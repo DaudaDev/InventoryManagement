@@ -16,7 +16,7 @@ public class MongodbDatabaseTests : MongodbFixture
     }
     
     [Fact]
-    public async Task Getdatabase_Database_Does_Not_Exists_Returns_Error()
+    public async Task GetCollection_Database_Does_Not_Exists_Returns_Error()
     {
         const string InvalidName = "InvalidName";
         MongodbDatabase sut = new(Runner.ConnectionString, InvalidName);
@@ -28,7 +28,7 @@ public class MongodbDatabaseTests : MongodbFixture
     }
     
     [Fact]
-    public async Task Getdatabase_Collection_Does_Not_Exists_Returns_Error()
+    public async Task GetCollection_Collection_Does_Not_Exists_Returns_Error()
     {
         const string InvalidName = "InvalidName";
         MongodbDatabase sut = new(Runner.ConnectionString, TestDatabase);
@@ -40,7 +40,7 @@ public class MongodbDatabaseTests : MongodbFixture
     }
     
     [Fact]
-    public async Task Getdatabase_Connection_Exists_Returns_Valid_Database()
+    public async Task GetCollection_Connection_Exists_Returns_Valid_Database()
     {
         MongodbDatabase sut = new(Runner.ConnectionString, TestDatabase);
 

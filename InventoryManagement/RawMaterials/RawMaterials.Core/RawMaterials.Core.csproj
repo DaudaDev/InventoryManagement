@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
-      <PackageReference Include="CSharpFunctionalExtensions" Version="2.29.1" />
+      <ProjectReference Include="..\..\SharedProjects\Blocks.Shared\Blocks.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Blocks.Shared\Blocks.Shared.csproj" />
+      <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.29.1" />
     </ItemGroup>
 
 </Project>
