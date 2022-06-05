@@ -351,6 +351,7 @@ MigrationBackup/
 # Default ignored files
 /shelf/
 /workspace.xml
+
 # Rider ignored files
 /modules.xml
 /contentModel.xml
@@ -383,7 +384,7 @@ MigrationBackup/
 **/.idea/**/*.iml
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
-
+.idea/
 *.suo
 *.user
 .vs/
