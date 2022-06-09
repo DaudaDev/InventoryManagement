@@ -4,7 +4,7 @@ namespace Blocks.MongoDb.Facade;
 
 public interface IMongoDbFacade<TEntity>
 {
-    Task<Result<IEnumerable<TEntity>>> GetAllEntities(string collectionId);
+    Task<Result<List<TEntity>>> GetAllEntities(string collectionId);
     
     Task<Result> SaveEntity(string collectionId, TEntity entity);
 

@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Blocks.MongoDB.Tests;
 
-public record TestDocument : MongoDbBaseDocument
+public class TestDocument : MongoDbBaseDocument
 {
     public string StringTest { get; set; }
 
@@ -19,6 +19,7 @@ public record TestDocument : MongoDbBaseDocument
     {
         return new TestDocument
         {
+            EntityId = Guid.NewGuid(),
             StringTest = "Hello World",
             IntTest = 42,
             DateTest = new DateTime(1984, 09, 30, 6, 6, 6, 171, DateTimeKind.Utc).ToLocalTime(),
@@ -30,6 +31,7 @@ public record TestDocument : MongoDbBaseDocument
     {
         return new TestDocument
         {
+            EntityId = Guid.NewGuid(),
             StringTest = "Foo",
             IntTest = 23,
         };
@@ -39,6 +41,7 @@ public record TestDocument : MongoDbBaseDocument
     {
         return new TestDocument
         {
+            EntityId = Guid.NewGuid(),
             Id = ObjectId.GenerateNewId().ToString(),
             StringTest = "Bar",
             IntTest = 77,

@@ -2,6 +2,6 @@
 
 public class Size
 {
-    public Unit? Unit { get; set; }
+    public Unit Unit { get; set; } = Unit.Empty;
     public double Amount { get; set; }
 }

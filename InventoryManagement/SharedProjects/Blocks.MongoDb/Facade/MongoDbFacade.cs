@@ -14,18 +14,18 @@ public class MongoDbFacade<TEntity> : IMongoDbFacade<TEntity> where TEntity : Mo
         _mongodb = mongodb;
     }
 
-    public async Task<Result<IEnumerable<TEntity>>> GetAllEntities(string collectionId)
+    public async Task<Result<List<TEntity>>> GetAllEntities(string collectionId)
     {
         var collection = await _mongodb.GetCollection<TEntity>(collectionId);
 
         if (collection.IsFailure)
         {
-            return Result.Failure<IEnumerable<TEntity>>(collection.Error);
+            return Result.Failure<List<TEntity>>(collection.Error);
         }
         
         var results = await collection.Value.FindAsync<TEntity>(Builders<TEntity>.Filter.Empty);
 
-        return Result.Success(results.ToEnumerable());
+        return Result.Success(results.ToList());
     }
 
     public async Task<Result> SaveEntity(string collectionId, TEntity entity)
@@ -38,7 +38,7 @@ public class MongoDbFacade<TEntity> : IMongoDbFacade<TEntity> where TEntity : Mo
         } 
         
         var result = await collection.Value.ReplaceOneAsync(
-            document => document.Id.Equals(entity.Id),
+            document => document.EntityId.Equals(entity.EntityId),
             entity,
             new ReplaceOptions
             {
@@ -62,7 +62,7 @@ public class MongoDbFacade<TEntity> : IMongoDbFacade<TEntity> where TEntity : Mo
         }
         
         var result = await collection.Value
-            .DeleteOneAsync(entity => entity.Id.Equals(entityId));
+            .DeleteOneAsync(entity => entity.EntityId.Equals(entityId));
 
         return result.IsAcknowledged switch
         {
@@ -81,7 +81,7 @@ public class MongoDbFacade<TEntity> : IMongoDbFacade<TEntity> where TEntity : Mo
         }
         
         var results = await collection.Value
-            .FindAsync(entity => entity.Id.Equals(entityId));
+            .FindAsync(entity => entity.EntityId.Equals(entityId));
 
         return results.FirstOrDefault();
     }
