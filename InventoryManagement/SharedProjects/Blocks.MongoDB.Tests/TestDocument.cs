@@ -47,5 +47,4 @@ public class TestDocument : MongoDbBaseDocument
             IntTest = 77,
         };
     }
-
 }
