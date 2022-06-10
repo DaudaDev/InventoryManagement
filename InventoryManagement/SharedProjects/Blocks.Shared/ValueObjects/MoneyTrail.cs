@@ -10,7 +10,7 @@ public class MoneyTrail
     }
 
     public Money CurrentValue { get; set; }
-    public IList<MoneyChangeLog> ChangeLog { get; set; } = Array.Empty<MoneyChangeLog>();
+    public IList<MoneyChangeLog> ChangeLog { get; set; } = new List<MoneyChangeLog>();
 
     public Result UpdateMoney(Money money)
     {

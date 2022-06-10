@@ -39,6 +39,5 @@ public class InventoryItemEntry
     public Result UpdatePricePerUnit(Money newPricePerUnit)
     {
         return PricePerUnit.UpdateMoney(newPricePerUnit);
-
     }
 }

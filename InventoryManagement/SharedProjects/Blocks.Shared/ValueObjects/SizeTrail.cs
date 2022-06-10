@@ -11,7 +11,7 @@ public class SizeTrail
     }
 
     public Size CurrentValue { get; set; }
-    public IList<SizeChangeLog> ChangeLog { get; set; } = Array.Empty<SizeChangeLog>();
+    public IList<SizeChangeLog> ChangeLog { get; set; } = new List<SizeChangeLog>();
 
     public Result AddAmount(double amount)
     {
