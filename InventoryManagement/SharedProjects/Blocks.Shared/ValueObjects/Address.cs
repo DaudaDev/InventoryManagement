@@ -2,6 +2,7 @@
 
 public record Address
 {
+    public Guid AddressID { get; set; }
     public string? AddressLine1 { get; init; }
     public string? AddressLine2 { get; init; }
     public string? Street { get; init; }
