@@ -7,7 +7,7 @@ namespace Inventory.Core.Unit.Tests.Domain;
 
 public class InventoryItemTests
 {
-    private Fixture _fixture = new();
+    private readonly Fixture _fixture = new();
 
     [Fact]
     public void CreateInventoryItem_Creates_Valid_InventoryItem()
