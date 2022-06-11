@@ -23,14 +23,23 @@ public class MaintenanceLog
         Name = new EntityName(name);
     }
 
-    public void SetDateStarted(DateTimeOffset? dateStarted)
+    public Result SetDateStarted(DateTimeOffset dateStarted)
     {
-        DateStarted = dateStarted ?? DateTimeOffset.Now;
+        DateStarted = dateStarted;
+        
+        return Result.Success();
     }
 
-    public void SetDateEnded(DateTimeOffset? dateEnded)
+    public Result SetDateEnded(DateTimeOffset dateEnded)
     {
-        DateEnded = dateEnded ?? DateTimeOffset.Now;
+        if (dateEnded < DateStarted)
+        {
+            return Result.Failure($"The end date cannot be before the start date {dateEnded}");
+        }
+        
+        DateEnded = dateEnded;
+        
+        return Result.Success();
     }
 
     public void SetVendor(Vendor vendor)
@@ -38,19 +47,33 @@ public class MaintenanceLog
         Vendor = vendor;
     }
 
-    public void AddCost(Currency currency, double amount)
+    public Result AddCost(Currency currency, double amount)
     {
+        if (amount < 0)
+        {
+            return Result.Failure("Amount cannot be less than zero");
+        }
+        
         TotalCosts = new(currency, amount);
+        
+        return Result.Success();
     }
 
-    public void UpdateCost(Currency currency, double amount)
+    public Result UpdateCost(Currency currency, double amount)
     {
+        if (amount < 0)
+        {
+            return Result.Failure("Amount cannot be less than zero");
+        }
+        
         TotalCosts = TotalCosts == null
             ? new(currency, amount)
             : new(currency, TotalCosts.Amount + amount);
+        
+        return Result.Success();
     }
 
-    public void AddComment(string comment)
+    public Result AddComment(string comment)
     {
         Comments.Add(new()
         {
@@ -58,6 +81,8 @@ public class MaintenanceLog
             CommentDate = DateTimeOffset.Now,
             CommentValue = comment
         });
+        
+        return Result.Success();
     }
 
     public Result UpdateComment(Guid commentId, string commentText)

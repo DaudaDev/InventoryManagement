@@ -7,12 +7,21 @@ namespace Equipments.Core.Domain.Equipment;
 
 public class Equipments : AggregateEntity
 {
-    public EntityName? EquipmentName { get; private set; }
-    public IList<MaintenanceLog> MaintenanceLogs { get; private set; } = Array.Empty<MaintenanceLog>();
+    public EntityName EquipmentName { get; private set; }
+    public IList<MaintenanceLog> MaintenanceLogs { get; private set; } = new List<MaintenanceLog>();
     public DateTimeOffset PurchaseDate { get; private set; }
-    public Money? EquipmentPrice { get; private set; }
+    public Money EquipmentPrice { get; private set; }
     public EquipmentType EquipmentType { get; private set; }
 
+    private Equipments(Guid equipmentId, EntityName equipmentName, Money equipmentPrice, EquipmentType equipmentType,
+        DateTimeOffset purchaseDate)
+    {
+        EquipmentName = equipmentName;
+        EquipmentPrice = equipmentPrice;
+        EquipmentType = equipmentType;
+        PurchaseDate = purchaseDate;
+        EntityId = equipmentId;
+    }
     public void SetEquipmentName(string name)
     {
         EquipmentName = new(name);
@@ -33,7 +42,7 @@ public class Equipments : AggregateEntity
         PurchaseDate = purchaseDate;
     }
 
-    public void StartMaintainance(string name, Vendor vendor, DateTimeOffset? startDate = null, Money? cost = null)
+    public Result StartMaintainance(string name, Vendor vendor, DateTimeOffset startDate ,Money? cost = null)
     {
         var maintainanceLog = new MaintenanceLog(Guid.NewGuid());
 
@@ -44,58 +53,68 @@ public class Equipments : AggregateEntity
         if (cost is not null)
         {
             maintainanceLog.AddCost(cost.Currency, cost.Amount);
+            return Result.Success();
         }
 
         MaintenanceLogs.Add(maintainanceLog);
+        return Result.Success();
+
     }
 
-    public void FinishMaintainance(Guid logId, DateTimeOffset? endDate = null)
+    public Result FinishMaintainance(Guid logId, DateTimeOffset endDate)
     {
         var result = GetMaintenanceLog(logId);
 
-        result.Match(
+        return result.Match(
             maintenanceLog => maintenanceLog.SetDateEnded(endDate),
-            error => Console.WriteLine(error));
+            Result.Failure);
     
     }
 
-    public void UpdateMaintenanceCost(Guid logId, Money money)
+    public Result UpdateMaintenanceCost(Guid logId, Money money)
     {
         var result = GetMaintenanceLog(logId);
 
-        result.Match(
+        return  result.Match(
             maintenanceLog => maintenanceLog.UpdateCost(money.Currency, money.Amount),
-            error => Console.WriteLine(error));
+            Result.Failure);
        
     }
 
-    public void AddMaintenanceComment(Guid logId, string comment)
+    public Result AddMaintenanceComment(Guid logId, string comment)
     {
         var result = GetMaintenanceLog(logId);
 
-        result.Match(
+        return result.Match(
             maintenanceLog => maintenanceLog.AddComment(comment),
-            error => Console.WriteLine(error));
+            Result.Failure);
     }
 
-    public void UpdateComment(Guid logId, Guid commentId, string commentText)
+    public Result UpdateComment(Guid logId, Guid commentId, string commentText)
     {
         var result = GetMaintenanceLog(logId);
 
-        result.Match(
+        return result.Match(
             maintenanceLog => maintenanceLog.UpdateComment(commentId, commentText),
-            error => Console.WriteLine(error));
+            Result.Failure);
     }
 
     private Result<MaintenanceLog> GetMaintenanceLog(Guid logId)
     {
         var maintenanceLog = MaintenanceLogs.SingleOrDefault(log => log.Id == logId);
 
-        if (maintenanceLog is null)
-        {
-            return Result.Failure<MaintenanceLog>($"Maintenance Log with ID {logId} cannot be found");
-        }
+        return maintenanceLog is null 
+            ? Result.Failure<MaintenanceLog>($"Maintenance Log with ID {logId} cannot be found")
+            : Result.Success(maintenanceLog);
+    }
 
-        return Result.Success(maintenanceLog);
+    public static Equipments CreateEquipments(
+        Guid equipmentId,
+        EntityName equipmentName,
+        Money equipmentPrice,
+        EquipmentType equipmentType,
+        DateTimeOffset purchaseDate)
+    {
+        return new Equipments(equipmentId, equipmentName, equipmentPrice, equipmentType, purchaseDate);
     }
 }
