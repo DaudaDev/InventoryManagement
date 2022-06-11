@@ -1,6 +1,6 @@
-using Inventory.Application;
-using Inventory.Infrastructure;
 using MediatR;
+using RawMaterials.Application;
+using RawMaterials.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRepository(builder.Configuration);
