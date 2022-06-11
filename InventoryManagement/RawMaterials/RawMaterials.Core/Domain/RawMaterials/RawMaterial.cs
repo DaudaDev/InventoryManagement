@@ -44,17 +44,18 @@ public class RawMaterial : AggregateEntity
         CurrentStock.Add(size);
     }
 
-    public void AddStock(Size size)
+    public Result AddStock(Size size)
     {
         var existingStock = CurrentStock.SingleOrDefault(c => c.Unit == size.Unit);
 
         if (existingStock is not null)
         {
             existingStock.Amount += size.Amount;
-            return;
+            return Result.Success();
         }
 
         CurrentStock.Add(size);
+        return Result.Success();
     }
 
     public Result UseStock(Size size)
