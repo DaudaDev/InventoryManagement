@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Blocks.MongoDb.Facade;
-using Blocks.Shared.Infrastructure;
+using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
 using Microsoft.Extensions.Options;
 using RawMaterials.Core.Domain.RawMaterials;

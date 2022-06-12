@@ -1,8 +1,7 @@
-﻿using Blocks.Shared.Infrastructure;
+﻿using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
 using Inventory.Application.Commands;
 using Inventory.Application.Services.UpdateStock.Factory;
-using Inventory.Core;
 using Inventory.Core.Domain;
 using MediatR;
 

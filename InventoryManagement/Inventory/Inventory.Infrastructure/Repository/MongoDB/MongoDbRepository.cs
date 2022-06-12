@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using Blocks.MongoDb.Facade;
-using Blocks.Shared.Infrastructure;
+using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
-using Inventory.Core;
 using Inventory.Core.Domain;
 using Inventory.Infrastructure.Models;
 using Microsoft.Extensions.Options;

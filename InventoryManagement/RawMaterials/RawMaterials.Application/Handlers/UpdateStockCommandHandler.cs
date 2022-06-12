@@ -1,4 +1,4 @@
-﻿using Blocks.Shared.Infrastructure;
+﻿using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
 using MediatR;
 using RawMaterials.Application.Commands;

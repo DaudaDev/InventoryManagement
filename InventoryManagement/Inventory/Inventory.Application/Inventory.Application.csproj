@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\SharedProjects\Blocks.Shared.Contracts\Blocks.Shared.Contracts.csproj" />
       <ProjectReference Include="..\Inventory.Core\Inventory.Core.csproj" />
     </ItemGroup>
 

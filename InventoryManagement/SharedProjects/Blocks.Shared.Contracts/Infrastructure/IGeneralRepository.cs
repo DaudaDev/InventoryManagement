@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace Blocks.Shared.Infrastructure;
+namespace Blocks.Shared.Contracts.Infrastructure;
 
 public interface IGeneralRepository<TEntity>
 {

@@ -1,5 +1,4 @@
 ﻿using Blocks.Shared.ValueObjects;
-using CSharpFunctionalExtensions;
 using Production.Core.ValueObjects;
 
 namespace Production.Core.Domain;

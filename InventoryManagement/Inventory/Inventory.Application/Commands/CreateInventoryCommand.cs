@@ -1,6 +1,5 @@
 ﻿using Blocks.Shared.ValueObjects;
 using CSharpFunctionalExtensions;
-using Inventory.Core;
 using Inventory.Core.Domain;
 using MediatR;
 

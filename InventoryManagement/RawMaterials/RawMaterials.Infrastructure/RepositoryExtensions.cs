@@ -1,6 +1,6 @@
 ﻿using Blocks.MongoDb.Databases;
 using Blocks.MongoDb.Facade;
-using Blocks.Shared.Infrastructure;
+using Blocks.Shared.Contracts.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RawMaterials.Core.Domain.RawMaterials;

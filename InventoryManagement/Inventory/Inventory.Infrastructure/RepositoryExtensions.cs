@@ -1,7 +1,6 @@
 ﻿using Blocks.MongoDb.Databases;
 using Blocks.MongoDb.Facade;
-using Blocks.Shared.Infrastructure;
-using Inventory.Core;
+using Blocks.Shared.Contracts.Infrastructure;
 using Inventory.Core.Domain;
 using Inventory.Infrastructure.Models;
 using Inventory.Infrastructure.Repository.MongoDB;

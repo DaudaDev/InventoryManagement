@@ -13,7 +13,7 @@ public class MaintenanceLog
     public Money? TotalCosts { get; private set; }
     public IList<Comment> Comments { get; private set; } = Array.Empty<Comment>();
 
-    public MaintenanceLog(Guid id)
+    private MaintenanceLog(Guid id)
     {
         Id = id;
     }
@@ -98,6 +98,11 @@ public class MaintenanceLog
         return new Result();
     }
 
+
+    public static MaintenanceLog CreateMaintenanceLog(Guid logId)
+    {
+        return new MaintenanceLog(logId);
+    }
     private Result<Comment> GetComment(Guid commentId)
     {
         var comment = Comments.SingleOrDefault(comment => comment.Id == commentId);

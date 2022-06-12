@@ -1,5 +1,4 @@
-﻿using Blocks.Shared.ValueObjects;
-using CSharpFunctionalExtensions;
+﻿using CSharpFunctionalExtensions;
 using MediatR;
 using RawMaterials.Core.Domain.RawMaterials;
 using RawMaterials.Core.ValueObjects;

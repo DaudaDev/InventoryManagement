@@ -1,6 +1,5 @@
 using Inventory.Application.Commands;
 using Inventory.Application.Queries;
-using Inventory.Core;
 using Inventory.Core.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

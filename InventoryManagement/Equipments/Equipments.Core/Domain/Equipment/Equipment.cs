@@ -5,7 +5,7 @@ using Equipments.Core.ValueObjects;
 
 namespace Equipments.Core.Domain.Equipment;
 
-public class Equipments : AggregateEntity
+public class Equipment : AggregateEntity
 {
     public EntityName EquipmentName { get; private set; }
     public IList<MaintenanceLog> MaintenanceLogs { get; private set; } = new List<MaintenanceLog>();
@@ -13,7 +13,7 @@ public class Equipments : AggregateEntity
     public Money EquipmentPrice { get; private set; }
     public EquipmentType EquipmentType { get; private set; }
 
-    private Equipments(Guid equipmentId, EntityName equipmentName, Money equipmentPrice, EquipmentType equipmentType,
+    private Equipment(Guid equipmentId, EntityName equipmentName, Money equipmentPrice, EquipmentType equipmentType,
         DateTimeOffset purchaseDate)
     {
         EquipmentName = equipmentName;
@@ -42,9 +42,9 @@ public class Equipments : AggregateEntity
         PurchaseDate = purchaseDate;
     }
 
-    public Result StartMaintainance(string name, Vendor vendor, DateTimeOffset startDate ,Money? cost = null)
+    public Result StartMaintenance(string name, Vendor vendor, DateTimeOffset startDate ,Money? cost = null)
     {
-        var maintainanceLog = new MaintenanceLog(Guid.NewGuid());
+        var maintainanceLog =  MaintenanceLog.CreateMaintenanceLog(Guid.NewGuid());
 
         maintainanceLog.SetVendor(vendor);
         maintainanceLog.SetDateStarted(startDate);
@@ -53,7 +53,6 @@ public class Equipments : AggregateEntity
         if (cost is not null)
         {
             maintainanceLog.AddCost(cost.Currency, cost.Amount);
-            return Result.Success();
         }
 
         MaintenanceLogs.Add(maintainanceLog);
@@ -61,7 +60,7 @@ public class Equipments : AggregateEntity
 
     }
 
-    public Result FinishMaintainance(Guid logId, DateTimeOffset endDate)
+    public Result FinishMaintenance(Guid logId, DateTimeOffset endDate)
     {
         var result = GetMaintenanceLog(logId);
 
@@ -108,13 +107,13 @@ public class Equipments : AggregateEntity
             : Result.Success(maintenanceLog);
     }
 
-    public static Equipments CreateEquipments(
+    public static Equipment CreateEquipments(
         Guid equipmentId,
         EntityName equipmentName,
         Money equipmentPrice,
         EquipmentType equipmentType,
         DateTimeOffset purchaseDate)
     {
-        return new Equipments(equipmentId, equipmentName, equipmentPrice, equipmentType, purchaseDate);
+        return new Equipment(equipmentId, equipmentName, equipmentPrice, equipmentType, purchaseDate);
     }
 }

@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\SharedProjects\Blocks.Shared.Contracts\Blocks.Shared.Contracts.csproj" />
       <ProjectReference Include="..\RawMaterials.Core\RawMaterials.Core.csproj" />
     </ItemGroup>
 

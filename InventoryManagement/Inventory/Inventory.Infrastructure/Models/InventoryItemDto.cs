@@ -1,6 +1,5 @@
 ﻿using Blocks.MongoDb.Models;
 using Blocks.Shared.ValueObjects;
-using Inventory.Core;
 using Inventory.Core.Domain;
 
 namespace Inventory.Infrastructure.Models;

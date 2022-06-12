@@ -1,5 +1,4 @@
 ﻿using CSharpFunctionalExtensions;
-using Inventory.Core;
 using Inventory.Core.Domain;
 using MediatR;
 

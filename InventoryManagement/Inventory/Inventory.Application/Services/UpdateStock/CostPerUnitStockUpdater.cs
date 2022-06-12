@@ -1,7 +1,6 @@
 ﻿using Blocks.Shared.ValueObjects;
 using CSharpFunctionalExtensions;
 using Inventory.Application.Model;
-using Inventory.Core;
 using Inventory.Core.Domain;
 
 namespace Inventory.Application.Services.UpdateStock;
