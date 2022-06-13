@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Equipments.Application.Commands;
 
-public abstract class StartMaintenanceCommand : IRequest<Result>
+public class StartMaintenanceCommand : IRequest<Result>
 {
     public Guid EquipmentId { get; set; }
     public string Name { get; set; }

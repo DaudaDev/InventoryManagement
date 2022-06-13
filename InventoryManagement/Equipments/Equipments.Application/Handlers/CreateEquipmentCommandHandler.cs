@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Equipments.Application.Handlers;
 
-public class CreateEquipmentCommandHandler: IRequestHandler<CreateEquipmentCommand, Result>
+public class CreateEquipmentCommandHandler: IRequestHandler<CreateEquipmentCommand, Result<Equipment>>
 {
     private readonly IGeneralRepository<Equipment> _repository;
 
@@ -15,7 +15,7 @@ public class CreateEquipmentCommandHandler: IRequestHandler<CreateEquipmentComma
         _repository = repository;
     }
     
-    public async Task<Result> Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Equipment>> Handle(CreateEquipmentCommand request, CancellationToken cancellationToken)
     {
         var equipment = Equipment.CreateEquipments(
             request.EquipmentId,
@@ -26,6 +26,6 @@ public class CreateEquipmentCommandHandler: IRequestHandler<CreateEquipmentComma
         
         var result = await _repository.SaveEntity(equipment);
         
-        return result.Match(Result.Success, Result.Failure);
+        return result.Match(() => equipment, Result.Failure<Equipment>);
     }
 }
