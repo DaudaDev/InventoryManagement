@@ -4,13 +4,13 @@ using Sales.Core.ValueObjects;
 
 namespace Sales.Core.Domain;
 
-public class Sales
+public class SalesEntity
 {
     public EntityName Name { get; set; }
     public Period SalesPeriod { get; set; }
     public IList<SalesCost> SalesCosts { get; set; } = new List<SalesCost>();
 
-    private Sales(EntityName name, Period salesPeriod)
+    private SalesEntity(EntityName name, Period salesPeriod)
     {
         Name = name;
         SalesPeriod = salesPeriod;
@@ -61,8 +61,8 @@ public class Sales
     {
         return updateSales(amount);
     }
-    public static Sales CreateSales(EntityName name, Period salesPeriod)
+    public static SalesEntity CreateSales(EntityName name, Period salesPeriod)
     {
-        return new Sales(name, salesPeriod);
+        return new SalesEntity(name, salesPeriod);
     }
 }
