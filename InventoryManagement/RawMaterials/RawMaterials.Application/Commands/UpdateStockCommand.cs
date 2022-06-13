@@ -5,7 +5,7 @@ using RawMaterials.Application.Models;
 
 namespace RawMaterials.Application.Commands;
 
-public class UpdateStockCommand : IRequest<Result> 
+public abstract class UpdateStockCommand : IRequest<Result> 
 {
     public Guid RawMaterialId { get; set; }
     public Size Size { get; set; }

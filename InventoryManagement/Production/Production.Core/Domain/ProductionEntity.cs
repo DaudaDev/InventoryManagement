@@ -4,14 +4,14 @@ using Production.Core.ValueObjects;
 
 namespace Production.Core.Domain;
 
-public class Production
+public class ProductionEntity
 {
     public ProductType ProductType { get; set; }
     public Period Date { get; set; }
     public Size Quantity { get; set; }
     public IList<ProductionCost> ProductionCosts { get; set; } = new List<ProductionCost>();
 
-    private Production(ProductType productType, Period salesPeriod)
+    private ProductionEntity(ProductType productType, Period salesPeriod)
     {
         ProductType = productType;
     }
@@ -53,9 +53,9 @@ public class Production
         return Result.Success();
     }
     
-    public static Production CreateProduction(ProductType productType, Period salesPeriod)
+    public static ProductionEntity CreateProduction(ProductType productType, Period salesPeriod)
     {
-        return new Production(productType, salesPeriod);
+        return new ProductionEntity(productType, salesPeriod);
     }
 }
 
