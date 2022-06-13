@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CSharpFunctionalExtensions" Version="2.29.1" />
+      <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0-preview.4.22229.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\SharedProjects\Blocks.Shared.Contracts\Blocks.Shared.Contracts.csproj" />
+      <ProjectReference Include="..\..\SharedProjects\Blocks.Shared\Blocks.Shared.csproj" />
+      <ProjectReference Include="..\Equipments.Core\Equipments.Core.csproj" />
+    </ItemGroup>
+
+</Project>

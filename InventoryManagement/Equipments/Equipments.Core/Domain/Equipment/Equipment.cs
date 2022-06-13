@@ -42,20 +42,20 @@ public class Equipment : AggregateEntity
         PurchaseDate = purchaseDate;
     }
 
-    public Result StartMaintenance(string name, Vendor vendor, DateTimeOffset startDate ,Money? cost = null)
+    public Result StartMaintenance(string name, Vendor vendor, DateTimeOffset startDate, Money? cost = null)
     {
-        var maintainanceLog =  MaintenanceLog.CreateMaintenanceLog(Guid.NewGuid());
+        var maintenanceLog =  MaintenanceLog.CreateMaintenanceLog(Guid.NewGuid());
 
-        maintainanceLog.SetVendor(vendor);
-        maintainanceLog.SetDateStarted(startDate);
-        maintainanceLog.SetName(name);
+        maintenanceLog.SetVendor(vendor);
+        maintenanceLog.SetDateStarted(startDate);
+        maintenanceLog.SetName(name);
 
         if (cost is not null)
         {
-            maintainanceLog.AddCost(cost.Currency, cost.Amount);
+            maintenanceLog.AddCost(cost.Currency, cost.Amount);
         }
 
-        MaintenanceLogs.Add(maintainanceLog);
+        MaintenanceLogs.Add(maintenanceLog);
         return Result.Success();
 
     }
@@ -80,12 +80,12 @@ public class Equipment : AggregateEntity
        
     }
 
-    public Result AddMaintenanceComment(Guid logId, string comment)
+    public Result AddMaintenanceComment(Guid logId, string commentText)
     {
         var result = GetMaintenanceLog(logId);
 
         return result.Match(
-            maintenanceLog => maintenanceLog.AddComment(comment),
+            maintenanceLog => maintenanceLog.AddComment(commentText),
             Result.Failure);
     }
 

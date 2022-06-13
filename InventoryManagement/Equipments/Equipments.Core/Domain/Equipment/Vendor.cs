@@ -2,7 +2,7 @@
 
 namespace Equipments.Core.Domain.Equipment;
 
-public class Vendor
+public abstract class Vendor
 {
     public EntityName? Name { get; private set; }
     public IList<Address> Addresses { get; private set; } = Array.Empty<Address>();
