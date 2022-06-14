@@ -7,18 +7,19 @@ namespace Production.Core.Domain;
 public class ProductionEntity
 {
     public ProductType ProductType { get; set; }
-    public Period Date { get; set; }
+    public Period ProductionPeriod { get; set; }
     public Size Quantity { get; set; }
     public IList<ProductionCost> ProductionCosts { get; set; } = new List<ProductionCost>();
 
-    private ProductionEntity(ProductType productType, Period salesPeriod)
+    private ProductionEntity(ProductType productType, Period productionPeriod)
     {
         ProductType = productType;
+        ProductionPeriod = productionPeriod;
     }
 
     public Result SetProductionDate(Period period)
     {
-        Date = period;
+        ProductionPeriod = period;
         
         return Result.Success();
     }
