@@ -3,10 +3,10 @@ using Blocks.MongoDb.Facade;
 using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
 using Inventory.Core.Domain;
-using Inventory.Infrastructure.Models;
+using Inventory.Infrastructure.Persistence.Models;
 using Microsoft.Extensions.Options;
 
-namespace Inventory.Infrastructure.Repository.MongoDB;
+namespace Inventory.Infrastructure.Persistence.Repository.MongoDB;
 
 public class MongoDbRepository : IGeneralRepository<InventoryItem>
 {

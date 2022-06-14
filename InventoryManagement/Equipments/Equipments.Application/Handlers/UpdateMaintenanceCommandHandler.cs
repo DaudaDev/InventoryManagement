@@ -1,7 +1,6 @@
 ﻿using Blocks.Shared.Contracts.Infrastructure;
 using CSharpFunctionalExtensions;
 using Equipments.Application.Commands;
-using Equipments.Application.Services.UpdateEquipment.Factory;
 using Equipments.Application.Services.UpdateMaintenance.Factory;
 using Equipments.Core.Domain.Equipment;
 using MediatR;

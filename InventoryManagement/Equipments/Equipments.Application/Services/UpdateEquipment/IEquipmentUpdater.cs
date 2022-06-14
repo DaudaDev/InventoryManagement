@@ -1,5 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-using Equipments.Application.Commands;
+﻿using Equipments.Application.Commands;
 using Equipments.Application.Model;
 using Equipments.Core.Domain.Equipment;
 

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Inventory.Core.Domain;
-using Inventory.Infrastructure.Models;
+using Inventory.Infrastructure.Persistence.Models;
 
-namespace Inventory.Infrastructure.Automapper;
+namespace Inventory.Infrastructure.Persistence.Automapper;
 
 public class InventoryItemProfile: Profile  
 {

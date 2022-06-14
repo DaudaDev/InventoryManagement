@@ -2,7 +2,7 @@
 using Blocks.Shared.ValueObjects;
 using Inventory.Core.Domain;
 
-namespace Inventory.Infrastructure.Models;
+namespace Inventory.Infrastructure.Persistence.Models;
 
 public class InventoryItemDto : MongoDbBaseDocument
 {

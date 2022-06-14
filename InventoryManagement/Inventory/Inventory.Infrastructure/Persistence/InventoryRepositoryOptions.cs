@@ -1,4 +1,4 @@
-﻿namespace Inventory.Infrastructure;
+﻿namespace Inventory.Infrastructure.Persistence;
 
 public class InventoryRepositoryOptions
 {
