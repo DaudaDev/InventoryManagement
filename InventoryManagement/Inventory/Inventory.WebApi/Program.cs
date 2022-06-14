@@ -3,7 +3,7 @@ using Inventory.Infrastructure;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddRepository(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplicationLayer();
 builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
