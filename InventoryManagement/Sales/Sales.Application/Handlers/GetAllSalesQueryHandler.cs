@@ -6,7 +6,7 @@ using Sales.Core.Domain;
 
 namespace Sales.Application.Handlers;
 
-public class GetAllSalesQueryHandler : IRequestHandler<GetAllalesQuery, Result<IEnumerable<SalesEntity>>>
+public class GetAllSalesQueryHandler : IRequestHandler<GetAllSalesQuery, Result<IEnumerable<SalesEntity>>>
 {
     private readonly IGeneralRepository<SalesEntity> _repository;
 
@@ -15,7 +15,7 @@ public class GetAllSalesQueryHandler : IRequestHandler<GetAllalesQuery, Result<I
         _repository = repository;
     }
 
-    public async Task<Result<IEnumerable<SalesEntity>>> Handle(GetAllalesQuery request, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<SalesEntity>>> Handle(GetAllSalesQuery request, CancellationToken cancellationToken)
     {
         return await _repository.GetAllEntities();
     }

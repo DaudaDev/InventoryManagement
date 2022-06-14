@@ -13,7 +13,7 @@ public static class RepositoryExtensions
 {
     public static IServiceCollection AddRepository(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        var configSection = configuration.GetSection("ProductionRepository");
+        var configSection = configuration.GetSection("SalesRepository");
         serviceCollection.Configure<SalesRepositoryOptions>(configSection);
         serviceCollection.AddSingleton<IMongodbDatabase>(
             _ => new MongodbDatabase("mongodb://localhost:27017", "Blocks"));
