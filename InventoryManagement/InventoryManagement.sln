@@ -76,6 +76,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipments.WebApi", "Equipm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocks.Shared.Contracts", "SharedProjects\Blocks.Shared.Contracts\Blocks.Shared.Contracts.csproj", "{1E678544-7AAC-4117-BE32-51DDA131A2EC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Accounts", "Accounts", "{FAE33288-B3FC-41FC-9E58-578CF0AA097F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.Core", "Accounts\Accounts.Core\Accounts.Core.csproj", "{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +117,7 @@ Global
 		{C4714117-208C-42A4-A86B-7F1A694465D5} = {2AB4712F-AA77-4EF8-A0E5-8AF681D2E946}
 		{2C50789C-C342-4F0C-A536-E0505E18E49C} = {2AB4712F-AA77-4EF8-A0E5-8AF681D2E946}
 		{1E678544-7AAC-4117-BE32-51DDA131A2EC} = {F8A5B382-2BAD-495E-8524-941CDD679A80}
+		{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8} = {FAE33288-B3FC-41FC-9E58-578CF0AA097F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{48410B47-E21A-44E9-AC21-0BF680F3A668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -239,5 +244,9 @@ Global
 		{1E678544-7AAC-4117-BE32-51DDA131A2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E678544-7AAC-4117-BE32-51DDA131A2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E678544-7AAC-4117-BE32-51DDA131A2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA38A75D-95C5-4F6F-94F8-8DE853FF04F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

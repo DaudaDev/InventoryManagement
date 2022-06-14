@@ -1,19 +1,21 @@
-﻿using Blocks.Shared.ValueObjects;
+﻿using Blocks.Shared.Aggregates;
+using Blocks.Shared.ValueObjects;
 using CSharpFunctionalExtensions;
 using Sales.Core.ValueObjects;
 
 namespace Sales.Core.Domain;
 
-public class SalesEntity
+public class SalesEntity : AggregateEntity
 {
     public EntityName Name { get; set; }
     public Period SalesPeriod { get; set; }
     public IList<SalesCost> SalesCosts { get; set; } = new List<SalesCost>();
 
-    private SalesEntity(EntityName name, Period salesPeriod)
+    private SalesEntity(Guid salesId, EntityName name, Period salesPeriod)
     {
         Name = name;
         SalesPeriod = salesPeriod;
+        EntityId = salesId;
     }
     
     public Result RemoveSalesCost(SalesCostType salesCostType)
@@ -61,8 +63,8 @@ public class SalesEntity
     {
         return updateSales(amount);
     }
-    public static SalesEntity CreateSales(EntityName name, Period salesPeriod)
+    public static SalesEntity CreateSales(Guid salesId, EntityName name, Period salesPeriod)
     {
-        return new SalesEntity(name, salesPeriod);
+        return new SalesEntity(salesId, name, salesPeriod);
     }
 }

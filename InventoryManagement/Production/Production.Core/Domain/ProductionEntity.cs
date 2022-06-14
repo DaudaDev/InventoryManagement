@@ -1,36 +1,38 @@
-﻿using Blocks.Shared.ValueObjects;
+﻿using Blocks.Shared.Aggregates;
+using Blocks.Shared.ValueObjects;
 using CSharpFunctionalExtensions;
 using Production.Core.ValueObjects;
 
 namespace Production.Core.Domain;
 
-public class ProductionEntity
+public class ProductionEntity : AggregateEntity
 {
     public ProductType ProductType { get; set; }
     public Period ProductionPeriod { get; set; }
     public Size Quantity { get; set; }
     public IList<ProductionCost> ProductionCosts { get; set; } = new List<ProductionCost>();
 
-    private ProductionEntity(ProductType productType, Period productionPeriod)
+    private ProductionEntity(Guid productionId, ProductType productType, Period productionPeriod)
     {
         ProductType = productType;
         ProductionPeriod = productionPeriod;
+        EntityId = productionId;
     }
 
     public Result SetProductionDate(Period period)
     {
         ProductionPeriod = period;
-        
+
         return Result.Success();
     }
-    
+
     public Result SetQuantity(Size size)
     {
         Quantity = size;
-        
+
         return Result.Success();
     }
-    
+
     public Result CreateProductionCosts(ProductionCost productionCost)
     {
         if (ProductionCosts.Any(s => s.CostType == productionCost.CostType))
@@ -42,7 +44,7 @@ public class ProductionEntity
 
         return Result.Success();
     }
-    
+
     public Result RemoveProductionCost(ProductionCostType productionCostType)
     {
         var productionCost = ProductionCosts.SingleOrDefault(s => s.CostType == productionCostType);
@@ -51,12 +53,12 @@ public class ProductionEntity
         {
             ProductionCosts.Remove(productionCost);
         }
+
         return Result.Success();
     }
-    
-    public static ProductionEntity CreateProduction(ProductType productType, Period salesPeriod)
+
+    public static ProductionEntity CreateProduction(Guid productionId, ProductType productType, Period salesPeriod)
     {
-        return new ProductionEntity(productType, salesPeriod);
+        return new ProductionEntity(productionId ,productType, salesPeriod);
     }
 }
-

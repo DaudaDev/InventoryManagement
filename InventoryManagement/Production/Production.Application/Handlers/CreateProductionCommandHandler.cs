@@ -17,7 +17,7 @@ public class CreateProductionCommandHandler : IRequestHandler<CreateProductionCo
 
     public async Task<Result<ProductionEntity>> Handle(CreateProductionCommand request, CancellationToken cancellationToken)
     {
-        var productionEntity = ProductionEntity.CreateProduction(request.ProductType, request.SalesPeriod);
+        var productionEntity = ProductionEntity.CreateProduction(Guid.NewGuid(), request.ProductType, request.SalesPeriod);
         
        var result = await _repository.SaveEntity(productionEntity);
 

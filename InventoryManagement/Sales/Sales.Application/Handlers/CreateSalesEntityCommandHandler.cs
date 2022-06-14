@@ -17,7 +17,7 @@ public class CreateSalesEntityCommandHandler : IRequestHandler<CreateSalesEntity
 
     public async Task<Result<SalesEntity>> Handle(CreateSalesEntityCommand request, CancellationToken cancellationToken)
     {
-        var salesEntity = SalesEntity.CreateSales(request.Name, request.SalesPeriod);
+        var salesEntity = SalesEntity.CreateSales(Guid.NewGuid(), request.Name, request.SalesPeriod);
         
        var result = await _repository.SaveEntity(salesEntity);
 
