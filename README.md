@@ -1,2 +1,2 @@
 # InventoryManagement
-Services to manage inventory of a block manufacturing business 
+Services to manage inventory of a brick manufacturing business 
